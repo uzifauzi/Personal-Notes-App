@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Route, Routes } from 'react-router-dom';
 import HomePage from "../pages/HomePage";
 import DetailNotePage from "../pages/DetailNotePage";
+import AddNotePage from "../pages/AddNotePage";
 
 function NotesApp() {
     return (
@@ -18,6 +19,7 @@ function NotesApp() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/notes/:id" element={<DetailNotePage />}/>
+                <Route path="/new-note" element={<AddNotePage />}/>
             </Routes>
         </main>
         </div>

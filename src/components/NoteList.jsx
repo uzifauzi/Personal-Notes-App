@@ -1,5 +1,6 @@
 import React from "react";
 import NoteItem from "./NoteItem";
+import PropTypes from "prop-types";
 
 function NoteList({ notes }) {
     return (
@@ -11,6 +12,10 @@ function NoteList({ notes }) {
             }
         </div>
     );
+}
+
+NoteList.propTypes = {
+    notes: PropTypes.array.isRequired
 }
 
 export default NoteList;

@@ -1,10 +1,17 @@
 import React from "react";
 import { BsArchive, BsArchiveFill } from "react-icons/bs";
+import PropTypes from "prop-types";
 
-function ArchieveButton({ id, archived, onArchive }) {
+function ArchiveButton({ id, archived, onArchive }) {
     return (
         <button className="note-item__archive-button" onClick={() => onArchive(id)}>{archived ? <BsArchiveFill /> : <BsArchive />}</button>
     );
 }
 
-export default ArchieveButton;
+ArchiveButton.propTypes = {
+    id: PropTypes.string.isRequired,
+    archived: PropTypes.bool,
+    onArchive: PropTypes.func.isRequired
+}
+
+export default ArchiveButton;
