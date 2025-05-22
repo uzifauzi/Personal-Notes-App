@@ -82,6 +82,24 @@ header {
   font-size: 14px;
 }
 
+.note-item__archive-button {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.5rem; 
+  padding: 8px;
+  border: 1px solid grey;
+}
+
+.note-item__archive-button:hover {
+  background-color: #5866a3; 
+  border-radius: 4px;
+}
+
 .note-item__delete-button {
   width: 48px;
   height: 48px;
@@ -96,13 +114,14 @@ header {
 }
 
 .note-item__delete-button:hover {
-  background-color: #f8d7da; /* warna merah muda ringan */
+  background-color: #f8d7da; 
   border-radius: 4px;
 }
 
-
 .note-item__action {
+  max-width: 150px;
   display: flex;
+  justify-content:space-between;
 }
 
 .note-detail h5 {
@@ -135,3 +154,14 @@ header {
   max-width: 20vw;
   min-height: 2rem;
 }
+
+.not-found h1 {
+  font-size: 5rem;
+  font-weight: 900;
+}
+
+.not-found h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+

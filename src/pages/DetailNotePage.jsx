@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getNote, deleteNote } from "../utils/local-data";
+import { getNote, deleteNote, archiveNote, unarchiveNote } from "../utils/local-data";
 import NoteDetail from "../components/NoteDetail";
 import PropTypes from "prop-types";
 
@@ -20,6 +20,7 @@ class DetailNotePage extends React.Component {
         };
 
         this.onDeleteHandler = this.onDeleteHandler.bind(this);
+        this.onArchiveHandler = this.onArchiveHandler.bind(this);
     }
 
     onDeleteHandler(id) {
@@ -28,12 +29,24 @@ class DetailNotePage extends React.Component {
         this.props.navigate("/");
     }
 
+    onArchiveHandler(id) {
+        const note = this.state.note;
+        if (note.archived) {
+        unarchiveNote(id);
+        } else {
+        archiveNote(id);
+        }
+        this.setState({
+        note: getNote(id),
+        });
+    }
+
     render() {
         if(this.state.note == null) {
             return <p>Note tidak ditemukan!</p>
         }
         
-        const { id, title, createdAt, body } = this.state.note;
+        const { id, title, createdAt, body, archived } = this.state.note;
         
         return (
         <NoteDetail
@@ -41,7 +54,9 @@ class DetailNotePage extends React.Component {
         title={title}
         createdAt={createdAt}
         body={body}
+        archived={archived}
         onDelete={this.onDeleteHandler}
+        onArchive={this.onArchiveHandler}
       />
     );
     }
